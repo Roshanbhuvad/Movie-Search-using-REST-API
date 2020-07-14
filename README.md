@@ -7,3 +7,8 @@ https://dev.to/nedsoft/getting-started-with-sequelize-and-postgres-emp    - This
 https://www.djamware.com/post/5bb1f05280aca74669894417/node-express-sequelize-and-postgresql-association-example - Best website for creating new postgres Database
 
 
+
+# JEST testing
+<img src="Images/Moviesroutes_test.JPG">
+
+
