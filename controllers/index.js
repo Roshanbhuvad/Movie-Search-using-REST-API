@@ -155,4 +155,8 @@ module.exports = {
   getMovieById,
   updateMovie,
   deleteMovie,
+  createUser,
+  addWithMovie,
+  deleteUser,
+  updatedUser
 };
