@@ -1,5 +1,5 @@
-# Movie-Search-using-REST-API
-In this project I have used postgreSQL, Node.js, Express and jest testing framework
+# Movie-Search-using-PostgreSQL & Sequelize
+In this project, I have used postgreSQL with sequelize , Node.js, Express and jest and supertest testing framework
 
 https://dev.to/nedsoft/getting-started-with-sequelize-and-postgres-emp    - This webiste for creating CRUD operation with postgreSQL, express, Node.js
 
