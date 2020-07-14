@@ -1,0 +1,106 @@
+C:\Users\HP\Documents\topics_cmd\Postgres_final>npm test
+
+> postgres_final@1.0.0 pretest C:\Users\HP\Documents\topics_cmd\Postgres_final
+> cross-env NODE_ENV=test npm run migrate:reset
+
+
+> postgres_final@1.0.0 migrate:reset C:\Users\HP\Documents\topics_cmd\Postgres_final
+> npx sequelize-cli db:migrate:undo:all && npm run migrate
+
+
+Sequelize CLI [Node: 13.12.0, CLI: 6.2.0, ORM: 6.3.3]
+
+Loaded configuration file "database\config\config.json".
+Using environment "test".
+== 20200714115846-create-movies: reverting =======
+== 20200714115846-create-movies: reverted (0.176s)
+
+== 20200714115529-create-user: reverting =======
+== 20200714115529-create-user: reverted (0.048s)
+
+
+> postgres_final@1.0.0 migrate C:\Users\HP\Documents\topics_cmd\Postgres_final
+> npx sequelize-cli db:migrate
+
+
+Sequelize CLI [Node: 13.12.0, CLI: 6.2.0, ORM: 6.3.3]
+
+Loaded configuration file "database\config\config.json".
+Using environment "test".
+== 20200714115529-create-user: migrating =======
+== 20200714115529-create-user: migrated (0.221s)
+
+== 20200714115846-create-movies: migrating =======
+== 20200714115846-create-movies: migrated (0.158s)
+
+
+> postgres_final@1.0.0 test C:\Users\HP\Documents\topics_cmd\Postgres_final
+> cross-env NODE_ENV=test jest --testTimeout=10000
+
+ PASS  tests/sample.test.js
+  Sample test
+    √ Should test that true === true (10 ms)
+
+Test Suites: 1 passed, 1 total
+Tests:       1 passed, 1 total
+Snapshots:   0 total
+Time:        5.499 s, estimated 6 s
+Ran all test suites.
+
+///2nd test
+
+C:\Users\HP\Documents\topics_cmd\Postgres_final>npm test
+
+> postgres_final@1.0.0 pretest C:\Users\HP\Documents\topics_cmd\Postgres_final
+> cross-env NODE_ENV=test npm run migrate:reset
+
+
+> postgres_final@1.0.0 migrate:reset C:\Users\HP\Documents\topics_cmd\Postgres_final
+> npx sequelize-cli db:migrate:undo:all && npm run migrate
+
+
+Sequelize CLI [Node: 13.12.0, CLI: 6.2.0, ORM: 6.3.3]
+
+Loaded configuration file "database\config\config.json".
+Using environment "test".
+== 20200714115846-create-movies: reverting =======
+== 20200714115846-create-movies: reverted (0.365s)
+
+== 20200714115529-create-user: reverting =======
+== 20200714115529-create-user: reverted (0.210s)
+
+
+> postgres_final@1.0.0 migrate C:\Users\HP\Documents\topics_cmd\Postgres_final
+> npx sequelize-cli db:migrate
+
+
+Sequelize CLI [Node: 13.12.0, CLI: 6.2.0, ORM: 6.3.3]
+
+Loaded configuration file "database\config\config.json".
+Using environment "test".
+== 20200714115529-create-user: migrating =======
+== 20200714115529-create-user: migrated (0.483s)
+
+== 20200714115846-create-movies: migrating =======
+== 20200714115846-create-movies: migrated (0.327s)
+
+
+> postgres_final@1.0.0 test C:\Users\HP\Documents\topics_cmd\Postgres_final
+> cross-env NODE_ENV=test jest --testTimeout=10000
+
+ PASS  tests/sample.test.js (17.047 s)
+ PASS  tests/routes.test.js (36.658 s)
+  ● Console
+
+    console.log
+      Executing (default): INSERT INTO "Movies" ("id","movieId","movieName","genre","released","rated","IMDB","director","writer","actor","createdAt","updatedAt") VALUES (DEFAULT,$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11) RETURNING "id","movieId","movieName","genre","released","rated","IMDB","director","writer","actor","createdAt","updatedAt";
+
+      at Sequelize.log (node_modules/sequelize/lib/sequelize.js:1171:15)
+
+A worker process has failed to exit gracefully and has been force exited. This is likely caused by tests leaking due to improper teardown. Try running with --runInBand --detectOpenHandles to find leaks.
+
+Test Suites: 2 passed, 2 total
+Tests:       2 passed, 2 total
+Snapshots:   0 total
+Time:        49.766 s
+Ran all test suites.
