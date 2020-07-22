@@ -10,8 +10,33 @@ const createMovie = async (req, res) => {
     return res.status(500).json({ error: error.message });
   }
 };
-
 const getAllMovies = async (req, res) => {
+  try {
+    const movieName = req.query.movieName
+      ? { movieName: req.query.movieName }
+      : {};
+    const pageNumber = req.query.page ? req.query.page : 1;
+    const size = req.query.size ? req.query.size : 10;
+    const searchString = req.query.searchString
+      ? {
+          name: {
+            $regex: req.query.searchString,
+            $options: "i",
+          },
+        }
+      : {};
+    const movies = await models.Movies.findAll({
+      ...movieName,
+      ...searchString,
+    });
+
+    return res.status(200).json({ movies });
+  } catch (error) {
+    return res.status(500).send(error.message);
+  }
+};
+
+const getMoviesWithUser = async (req, res) => {
   try {
     const movies = await models.Movies.findAll({
       include: [
@@ -92,11 +117,23 @@ const createUser = async (req, res) => {
     return res.status(500).json({ error: error.message });
   }
 };
+
 const addWithMovie = async (req, res) => {
   try {
     const { id } = req.params;
-    const user = await models.Users.create(req.body, {
-      where: { id: id },
+    const user = await models.Users.create({
+      movieId: req.body.movieId,
+      movieName: req.body.movieName,
+      genre: req.body.genre,
+      released: req.body.released,
+      rated: req.body.rated,
+      IMDB: req.body.IMDB,
+      director: req.body.director,
+      writer: req.body.writer,
+      actor: req.body.actor,
+      username: req.body.username,
+      password: req.body.password,
+      email: req.body.email,
       include: [
         {
           model: models.Movies,
@@ -170,6 +207,7 @@ const deleteUser = async (req, res) => {
 module.exports = {
   createMovie,
   getAllMovies,
+  getMoviesWithUser,
   getMovieById,
   updateMovie,
   deleteMovie,
